@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Sexuality Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Sexuality Explorer 🌈</h1>
+        <p>Before we begin, we need to verify your age.</p>
+
+        <!-- Age Modal -->
+        <div class="modal">
+            <form action="{{ url_for('verify') }}" method="POST" class="modal-content">
+                <h2>Verify Your Age</h2>
+                <input type="number" name="birth_year" placeholder="Enter your birth year" required>
+                <button type="submit">Continue</button>
+                {% if error %}
+                    <p class="error">{{ error }}</p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
